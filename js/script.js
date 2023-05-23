@@ -10,17 +10,36 @@ var minuscule = "abcdefghijklmnopqrstuvwxyz";
 var majuscule = "ABCDEFGHIJKLMONPQRSTUVWXYZ"
 var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
+
+
+setInterval(incrementerDuree,1000);
+
 function incrementerDuree() {
+    //sconsole.log("marche");
     durees = document.getElementsByClassName("duree");
+    let i = 0;
     if (durees.lenght != 0) {
+        //console.log("marche");
         Array.prototype.forEach.call(durees, function(dureeElement) {
-            let valeur = parseInt(dureelement.textCotent);
-            dureeElement.textContent = valeur + 1;
-        })
+            //console.log(dureeElement.textContent);
+            let valeur = parseInt(dureeElement.textContent);
+            //console.log(valeur);
+            //console.log(dureeElement.textContent);
+            if (valeur = 59) {
+                dureeElement.style.color = "grey";
+                dureeElement.textContent = valeur + 1;
+                password = document.getElementsByClassName("password");
+                password[i].textContent = "Expiré !";
+            }
+            else {
+                if (valeur < 59) {
+                    dureeElement.textContent = valeur + 1;
+                }
+            }
+            i = i + 1;
+        });
     }
 }
-
-setInterval(incrementerDuree(), 100);
 
 function generer() {
     var monFormulaire = document.forms.ajoutPWD;//forms['addPWD'];
@@ -54,8 +73,9 @@ function generer() {
     var col3 = document.createElement("td");
     var col4 = document.createElement("td");
     var col5 = document.createElement("td");
+    col5.classList.add("password");
     var duree = document.createElement("td");
-    duree.classeList = "duree";
+    duree.classList.add("duree");
     duree.textContent = "0";
     col1.textContent = monFormulaire.elements["number"].value;
     col2.textContent = monFormulaire.elements["Date de validité"].value;
