@@ -14,7 +14,7 @@ var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
 
-setInterval(incrementerDuree,1000);
+/*setInterval(incrementerDuree,1000);
 
 function incrementerDuree() {
     //sconsole.log("marche");
@@ -42,7 +42,7 @@ function incrementerDuree() {
             i = i + 1;
         });
     }
-}
+}*/
 
 function generer() {
     var monFormulaire = document.forms.ajoutPWD;//forms['addPWD'];
@@ -89,7 +89,7 @@ function generer() {
     col5.textContent = password;
     ajoutPWD = new PWD(monFormulaire.elements["number"].value, monFormulaire.elements["Date de validité"].value, monFormulaire.elements["monselect"].value, monFormulaire.elements["Site"].value, password);
     */
-    mesPWDs = pushPWD(pwdSaisi(ajoutPWD));
+    mesPWDs = pushPWD(PwdSaisi(password));
     var monTableau = document.getElementById("montab");
     monTableau.innerHTML = "";
     Array.prototype.forEach.call(mesPWDs, function(elementPWD) {
@@ -97,7 +97,9 @@ function generer() {
         newLine.append(elementPWD.nombrecar, elementPWD.DateCreation, elementPWD.categorie, elementPWD.site, elementPWD.pwd, elementPWD.duree);
         monTableau.appendChild(newLine);
     })
-    }
+    
+
+}
 
 
 /*Partie 2: Test des critères*/
@@ -131,11 +133,7 @@ function supprimer2()
         if (confirm("Confirmez-vous la suppression de tous les mots passe générés ?"))
         {
            document.ajoutPWD.submit();
-           removeChild(lastChild); /**/ 
+           removeChild(lastChild);  
         } 
 }
 
-function pushPWD(liste_pwd,ajout) {
-    liste_pwd.push(ajout);
-    return liste_pwd;
-}
