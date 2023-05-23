@@ -1,4 +1,6 @@
 console.log("Je suis la console !");
+var mesPWDs = [];
+
 function bienvenue() //Etape 1 pour afficher une fenêtre pop-up
 {
     alert('Votre formulaire a été envoyé');
@@ -83,8 +85,17 @@ function generer() {
     col3.textContent = monFormulaire.elements["monselect"].value;
     col4.textContent = monFormulaire.elements["Site"].value;
     col5.textContent = password;
+    ajoutPWD = new PWD(monFormulaire.elements["number"].value, monFormulaire.elements["Date de validité"].value, monFormulaire.elements["monselect"].value, monFormulaire.elements["Site"].value, password);
+    mesPWDs.pushPWD(pwdSaisi(ajoutPWD));
+    Array.prototype.forEach.call(mesPWD, function(elementPWD) {
+        console.log(elementPWD);
+    })
     newLine.append(col1, col2, col3, col4, col5, duree);
     var monTableau = document.getElementById("montab");
     monTableau.appendChild(newLine);}
 
 
+
+function pushPWD(liste_pwd,ajout) {
+    liste_pwd.push(ajout);
+}
