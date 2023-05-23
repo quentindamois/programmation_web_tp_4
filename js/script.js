@@ -137,3 +137,24 @@ function supprimer2()
         } 
 }
 
+
+
+/* Partie 3 : classe Pwd */
+
+
+
+function PwdSaisi(pwd)
+{
+    var monFormulaire = document.forms.ajoutPWD;
+    
+    const NewPwd = {
+        nombre : monFormulaire.elements["number"].value,
+        date : monFormulaire.elements["Date de validité"].value,
+        categorie : monFormulaire.elements["monselect"].value,
+        site : monFormulaire.elements["Site"].value,
+        mdp : pwd
+    };
+     console.log(monFormulaire.elements["Date de validité"].value);
+
+
+}
