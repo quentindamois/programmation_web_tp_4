@@ -1,0 +1,304 @@
+html {
+    background-color: white;
+    color: #01257D;
+    font-family:'Marker Felt, fantasy', Courier, monospace;  
+    
+    
+}
+
+
+header
+{
+    background-image: url('../img/cyber-security-banner.png');
+    width: 90%;
+    height: 10%;
+    padding: 10px 30px 10px ;
+    margin: 10px 10px 10px;
+    box-shadow: 3px 3px 1px #01257D ;
+    position: static;
+    border: 3px solid wheat;
+   
+}
+
+footer
+{
+    background-image: url('../img/cyber-security-banner.png');
+    width: 90%;
+    padding: 10px 30px 10px;
+   margin: 50px 10px 0px;
+    box-shadow: 3px 3px 1px #01257D ;
+    position: static;
+    border: 3px solid wheat;
+
+    
+}
+
+h1
+{
+    /*text-align: left;*/
+    font-size:30px;
+    color: navy;
+    padding: 0px 0px 0px 5px;
+
+}
+
+h2
+{
+    text-align: left;
+    font-size:20px;
+    color: navy;
+    padding: 0px 0px 0px 5px;
+
+
+}
+
+a
+{
+    display:block;
+    font-size:20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    
+
+}
+
+section
+{
+    text-justify: auto;
+    padding: 0px 0px 0px 40px;
+    color: black;
+
+}
+
+
+#menu 
+{
+  padding: 0px 0px 0px ;
+  margin: 0px 0px 0px;
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+  
+
+#menu li:first-child :hover
+{
+    color:#01257D;
+    background-color:#F9B872;
+    transition: all 1s;
+    border: 3px solid wheat;
+    
+
+}
+
+#menu li:nth-child(2) :hover
+{
+    color:#01257D;
+    background-color:#F9B872;
+    transition: all 1s;
+    border: 3px solid wheat;
+
+}
+#menu li:last-child :hover
+{
+    color:#01257D;
+    background-color:#F9B872;
+    transition: all 1s;
+    border: 3px solid wheat;
+
+}
+
+.c1
+{
+    background-color: purple;
+    color: white;
+
+}
+
+.c2
+{
+    background-color: red;
+    color: white;
+
+}
+
+.c3
+{
+    background-color: orange;
+    color: white;
+
+}
+
+.c4
+{
+    background-color:#ffd700 ;
+    color: white;
+
+}
+
+.c5
+{
+    background-color: green;
+    color: white;
+
+}
+
+
+#itab{
+    border: 3px solid black;
+    /*border-collapse: collapse;*/
+    width: 91%;
+    height: auto;
+    text-align: center;
+    color: black;
+    margin: 20px 20px 0px 25px;
+    
+  }
+
+  #montab {
+    border: 3px solid black;
+    /*border-collapse: collapse;*/
+    width: 91%;
+    height: auto;
+    text-align: center;
+    color: black;
+    margin: 10px 74px 0px;
+    padding: 2% 2% 5% 2%;
+    background-color: 	#D3D3D3;
+    font-family:'Courier New', Courier, monospace;  
+    border-radius: 7%;
+}
+
+  
+  
+
+
+  #header-password {
+    display:flex;
+    box-shadow: none;
+}
+
+#header-password img {
+    border: none;
+    position: relative;
+    left: 0%;
+}
+#header-password  a {
+    height: 50%;
+    width: 50%;
+    position: relative;
+    left: 0%;
+}
+
+#menu-password {
+    padding:0% 0% 0% 0%;
+    margin:0% 0% 0% 0%;
+    list-style: none;
+    display: flex;
+    text-align: right;
+    position: relative;
+    right: 0%;
+}
+
+#menu-password img {
+    position: relative;
+}
+
+#menu-password a:hover {
+    background-color: blue;
+    transition: all 1s;
+}
+
+#menu-password a {
+    text-decoration-line: none;
+    display: inline;
+    border : black;
+    color: white;
+}
+
+
+#section-password {
+    color: black;
+    text-align: center;
+    width: 75%;
+    font-size:20px;
+    font-family:'Courier New', Courier, monospace;
+    margin: 10px 74px 0px; 
+}
+
+#section-password form{
+    background-color: #D3D3D3;
+    position: relative;
+    left: 3%;
+    border-radius: 7%;
+    padding: 5% 2% 5% 2%;
+    text-align: center;
+}
+
+#section-password h1 {
+    font-size : 200%;
+    color: black;
+    text-align: center;
+}
+
+#section-password fieldset {
+    text-align: center;
+    display: block ;
+}
+
+#section-password fieldset input {
+    display: inline;
+}
+#sectioin-password fieldset label {
+    display: inline;
+    text-align: justify;
+}
+#section-password legend {
+    text-align: center;
+}
+
+#section-password  label {
+    color : black;
+}
+
+#bouton-password input {
+    color: white
+}
+
+#bouton-password input:nth-child(1) {
+    background-color:green;
+}
+
+#bouton-password input:nth-child(2) {
+    background-color: red;
+}
+
+#body-password {
+    box-shadow: none;
+    /*margin: 25% 255% 25% 25%;*/
+    position: relative;
+    left: 3%;
+}
+
+#body-password footer {
+    box-shadow: none;
+}
+
+#body-password section {
+    box-shadow: none;
+}
+
+#body-password footer a {
+    color: white;
+    text-decoration-line: none;   
+}
+
+#information-password {
+    padding: 0% 0% 0% 0%;
+}
+
+#html-password {
+    background-color: grey;
+}
