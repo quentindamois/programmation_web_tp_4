@@ -100,6 +100,40 @@ function generer() {
     }
 
 
+/*Partie 2: Test des critères*/
+    document.addEventListener("DOMContentLoaded", function() { 
+        document.querySelector('#addPWD').addEventListener('submit',function(e)
+        {
+
+            if(!(document.getElementById("minuscule").checked) &&
+            !(document.getElementById("majuscule").checked) &&
+            !(document.getElementById("chiffre").checked) &&
+            !(document.getElementById("symbole").checked))
+            
+
+
+            {
+
+                alert('Veuillez sélectionner au moins un critères !');
+            }
+            else
+            {
+                generer();
+                document.ajoutPWD.reset();
+
+            }
+        });
+    });
+
+/* Partie 2 : Suppression des lignes du tableau*/
+function supprimer2() 
+{
+        if (confirm("Confirmez-vous la suppression de tous les mots passe générés ?"))
+        {
+           document.ajoutPWD.submit();
+           removeChild(lastChild); 
+        } 
+}
 
 function pushPWD(liste_pwd,ajout) {
     liste_pwd.push(ajout);
