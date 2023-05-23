@@ -12,7 +12,7 @@ var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
 
-setInterval(incrementerDuree,1000);
+/*setInterval(incrementerDuree,1000);
 
 function incrementerDuree() {
     //sconsole.log("marche");
@@ -40,7 +40,7 @@ function incrementerDuree() {
             i = i + 1;
         });
     }
-}
+}*/
 
 function generer() {
     var monFormulaire = document.forms.ajoutPWD;//forms['addPWD'];
@@ -85,7 +85,10 @@ function generer() {
     col5.textContent = password;
     newLine.append(col1, col2, col3, col4, col5, duree);
     var monTableau = document.getElementById("montab");
-    monTableau.appendChild(newLine);}
+    monTableau.appendChild(newLine);
+    PwdSaisi(password);
+
+}
 
 
 /*Partie 2: Test des critères*/
@@ -117,7 +120,28 @@ function supprimer2()
         if (confirm("Confirmez-vous la suppression de tous les mots passe générés ?"))
         {
            document.ajoutPWD.submit();
-           removeChild(lastChild); /**/ 
+           removeChild(lastChild);  
         } 
 }
 
+
+
+/* Partie 3 : classe Pwd */
+
+
+
+function PwdSaisi(pwd)
+{
+    var monFormulaire = document.forms.ajoutPWD;
+    
+    const NewPwd = {
+        nombre : monFormulaire.elements["number"].value,
+        date : monFormulaire.elements["Date de validité"].value,
+        categorie : monFormulaire.elements["monselect"].value,
+        site : monFormulaire.elements["Site"].value,
+        mdp : pwd
+    };
+     console.log("date"+categorie)
+
+
+}
