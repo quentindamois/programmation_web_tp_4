@@ -23,9 +23,9 @@ function incrementerDuree() {
         Array.prototype.forEach.call(durees, function(dureeElement) {
             //console.log(dureeElement.textContent);
             let valeur = parseInt(dureeElement.textContent);
-            //console.log(valeur);
+            console.log(valeur);
             //console.log(dureeElement.textContent);
-            if (valeur = 59) {
+            if (valeur == 59) {
                 dureeElement.style.color = "grey";
                 dureeElement.textContent = valeur + 1;
                 password = document.getElementsByClassName("password");
@@ -33,6 +33,7 @@ function incrementerDuree() {
             }
             else {
                 if (valeur < 59) {
+                    console.log("marche");
                     dureeElement.textContent = valeur + 1;
                 }
             }
