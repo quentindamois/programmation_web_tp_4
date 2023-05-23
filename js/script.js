@@ -20,7 +20,7 @@ function incrementerDuree() {
     }
 }
 
-setInterval(incrementerDuree());
+setInterval(incrementerDuree(), 100);
 
 function generer() {
     var monFormulaire = document.forms.ajoutPWD;//forms['addPWD'];
