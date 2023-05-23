@@ -141,7 +141,7 @@ function PwdSaisi(pwd)
         site : monFormulaire.elements["Site"].value,
         mdp : pwd
     };
-     console.log("date"+categorie)
+     console.log(monFormulaire.elements["Date de validité"].value);
 
 
 }
