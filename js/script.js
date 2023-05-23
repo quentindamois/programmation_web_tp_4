@@ -131,7 +131,7 @@ function supprimer2()
         if (confirm("Confirmez-vous la suppression de tous les mots passe générés ?"))
         {
            document.ajoutPWD.submit();
-           removeChild(lastChild); 
+           removeChild(lastChild); /**/ 
         } 
 }
 
