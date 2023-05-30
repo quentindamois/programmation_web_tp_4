@@ -25,20 +25,20 @@ function incrementerDuree() {
         Array.prototype.forEach.call(durees, function(dureeElement) {
             //console.log(dureeElement.textContent);
             let valeur = parseInt(dureeElement.textContent);
-            console.log(valeur);
             //console.log(dureeElement.textContent);
             if (valeur == 59) {
                 dureeElement.style.color = "grey";
                 dureeElement.textContent = valeur + 1;
+                mesPWDs[i].pwd = "Expiré !";
                 password = document.getElementsByClassName("password");
                 password[i].textContent = "Expiré !";
             }
             else {
                 if (valeur < 59) {
-                    console.log("marche");
                     dureeElement.textContent = valeur + 1;
                 }
             }
+            mesPWDs[i].duree = valeur + 1;
             i = i + 1;
         });
     }
@@ -70,6 +70,8 @@ function generer() {
         password = password + listecar.substring(randomNumber, randomNumber + 1);
     }
     console.log(password);} while(((password.match(/[a-z]/) == null) && monFormulaire.elements["minuscule"].checked) || ((password.match(/[A-Z]/) == null) && monFormulaire.elements["majuscule"].checked) || ((password.match(/[0-9]/) == null) && monFormulaire.elements["chiffre"].checked) || ((password.match(/!|[#-\&]|[\(-\+]|\^|:/) == null) && monFormulaire.elements["symbole"].checked));
+    
+    /*
     var newLine = document.createElement("tr");
     var col1 = document.createElement("td");
     var col2 = document.createElement("td");
@@ -86,16 +88,20 @@ function generer() {
     col4.textContent = monFormulaire.elements["Site"].value;
     col5.textContent = password;
     ajoutPWD = new PWD(monFormulaire.elements["number"].value, monFormulaire.elements["Date de validité"].value, monFormulaire.elements["monselect"].value, monFormulaire.elements["Site"].value, password);
-    mesPWDs.pushPWD(pwdSaisi(ajoutPWD));
-    Array.prototype.forEach.call(mesPWD, function(elementPWD) {
-        console.log(elementPWD);
-    })
-    newLine.append(col1, col2, col3, col4, col5, duree);
+    */
+    mesPWDs = pushPWD(pwdSaisi(ajoutPWD));
     var monTableau = document.getElementById("montab");
-    monTableau.appendChild(newLine);}
+    monTableau.innerHTML = "";
+    Array.prototype.forEach.call(mesPWDs, function(elementPWD) {
+        console.log(elementPWD);
+        newLine.append(elementPWD.nombrecar, elementPWD.DateCreation, elementPWD.categorie, elementPWD.site, elementPWD.pwd, elementPWD.duree);
+        monTableau.appendChild(newLine);
+    })
+    }
 
 
 
 function pushPWD(liste_pwd,ajout) {
     liste_pwd.push(ajout);
+    return liste_pwd;
 }
