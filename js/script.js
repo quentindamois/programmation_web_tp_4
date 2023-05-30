@@ -12,7 +12,7 @@ var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
 
-/*setInterval(incrementerDuree,1000);
+setInterval(incrementerDuree,1000);
 
 function incrementerDuree() {
     //sconsole.log("marche");
@@ -40,7 +40,7 @@ function incrementerDuree() {
             i = i + 1;
         });
     }
-}*/
+}
 
 function generer() {
     var monFormulaire = document.forms.ajoutPWD;//forms['addPWD'];
@@ -133,15 +133,53 @@ function supprimer2()
 function PwdSaisi(pwd)
 {
     var monFormulaire = document.forms.ajoutPWD;
-    
     const NewPwd = {
-        nombre : monFormulaire.elements["number"].value,
+        nombre :monFormulaire.elements["number"].value,
         date : monFormulaire.elements["Date de validité"].value,
         categorie : monFormulaire.elements["monselect"].value,
         site : monFormulaire.elements["Site"].value,
         mdp : pwd
     };
-     console.log(monFormulaire.elements["Date de validité"].value);
+     console.log("Nombre de caractères saisi : "+NewPwd.nombre+"\n"+
+     "Date de validité : "+ NewPwd.date+"\n"+"Catégorie saisie: "+
+     NewPwd.categorie +"\n"+"Site saisi: "+NewPwd.site+"\n"+
+     "Mot de passe généré : "+NewPwd.mdp);
+
+
+     const NvPWD = new PWD(monFormulaire.elements["number"].value,
+     monFormulaire.elements["Date de validité"].value, 
+     monFormulaire.elements["monselect"].value, 
+     monFormulaire.elements["Site"].value, pwd);
+     console.log(NvPWD);
+
+
+}
+
+/* Création de la classe PWD*/
+class PWD
+{
+    constructor(nombrecar, DateCreation, categorie,site,pwd)
+    {
+
+        this.nombrecar=nombrecar;
+        this.DateCreation=DateCreation;
+        this.categorie=categorie;
+        this.site=site;
+        this.pwd=pwd;
+    }
+
+    printPwd()
+    {
+        console.log(`Nombre de caractères saisi : ${this.nombrecar}`);
+        console.log(`Date de validité :  :${this.DateCreation}`);
+        console.log(`Catégorie saisie :${this.categorie}`);
+        console.log(`Site saisi :${this.site}`);
+        console.log(`Mot de passe généré :${this.pwd}`);
+
+
+
+
+    }
 
 
 }
