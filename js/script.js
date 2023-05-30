@@ -76,32 +76,11 @@ function generer() {
         password = password + listecar.substring(randomNumber, randomNumber + 1);
     }
     console.log(password);} while(((password.match(/[a-z]/) == null) && monFormulaire.elements["minuscule"].checked) || ((password.match(/[A-Z]/) == null) && monFormulaire.elements["majuscule"].checked) || ((password.match(/[0-9]/) == null) && monFormulaire.elements["chiffre"].checked) || ((password.match(/!|[#-\&]|[\(-\+]|\^|:/) == null) && monFormulaire.elements["symbole"].checked));
-    
-    /*
-    var newLine = document.createElement("tr");
-    var col1 = document.createElement("td");
-    var col2 = document.createElement("td");
-    var col3 = document.createElement("td");
-    var col4 = document.createElement("td");
-    var col5 = document.createElement("td");
-    col5.classList.add("password");
-    var duree = document.createElement("td");
-    duree.classList.add("duree");
-    duree.textContent = "0";
-    col1.textContent = monFormulaire.elements["number"].value;
-    col2.textContent = monFormulaire.elements["Date de validité"].value;
-    col3.textContent = monFormulaire.elements["monselect"].value;
-    col4.textContent = monFormulaire.elements["Site"].value;
-    col5.textContent = password;
-    ajoutPWD = new PWD(monFormulaire.elements["number"].value, monFormulaire.elements["Date de validité"].value, monFormulaire.elements["monselect"].value, monFormulaire.elements["Site"].value, password);
-    */
     pushPWD(PwdSaisi(password));
     console.log(mesPWDs);
     var monTableau = document.querySelector("#montab tbody");
     monTableau.innerHTML = "";
     mesPWDs.forEach(elementPWD => {
-        console.log("marche");
-        console.log(elementPWD);
         let newLine = document.createElement("tr");
         let col1 = document.createElement("td");
         let col2 = document.createElement("td");
