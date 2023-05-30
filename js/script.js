@@ -196,3 +196,8 @@ class PWD
 
 
 }
+
+function pushPWD(mesPWDs, pwd) {
+    mesPWDs.push(pwd);
+    return mesPWDs;
+}
