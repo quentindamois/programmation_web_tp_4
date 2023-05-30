@@ -1,4 +1,6 @@
 console.log("Je suis la console !");
+
+
 function bienvenue() //Etape 1 pour afficher une fenêtre pop-up
 {
     alert('Votre formulaire a été envoyé');
@@ -12,6 +14,8 @@ var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
 
+var mesPWDs = [];
+
 setInterval(incrementerDuree,1000);
 
 function incrementerDuree() {
@@ -23,26 +27,30 @@ function incrementerDuree() {
         Array.prototype.forEach.call(durees, function(dureeElement) {
             //console.log(dureeElement.textContent);
             let valeur = parseInt(dureeElement.textContent);
-            console.log(valeur);
             //console.log(dureeElement.textContent);
             if (valeur == 59) {
                 dureeElement.style.color = "grey";
                 dureeElement.textContent = valeur + 1;
+                mesPWDs[i].pwd = "Expiré !";
                 password = document.getElementsByClassName("password");
                 password[i].textContent = "Expiré !";
             }
             else {
                 if (valeur < 59) {
-                    console.log("marche");
                     dureeElement.textContent = valeur + 1;
                 }
+                else {
+                    dureeElement.style.color = "grey";
+                }
             }
+            mesPWDs[i].duree = valeur;
             i = i + 1;
         });
     }
 }
 
 function generer() {
+    console.log(mesPWDs);
     var monFormulaire = document.forms.ajoutPWD;//forms['addPWD'];
     //console.log(monFormulaire.nombre_caractere.value);
     var password = "";
@@ -68,25 +76,30 @@ function generer() {
         password = password + listecar.substring(randomNumber, randomNumber + 1);
     }
     console.log(password);} while(((password.match(/[a-z]/) == null) && monFormulaire.elements["minuscule"].checked) || ((password.match(/[A-Z]/) == null) && monFormulaire.elements["majuscule"].checked) || ((password.match(/[0-9]/) == null) && monFormulaire.elements["chiffre"].checked) || ((password.match(/!|[#-\&]|[\(-\+]|\^|:/) == null) && monFormulaire.elements["symbole"].checked));
-    var newLine = document.createElement("tr");
-    var col1 = document.createElement("td");
-    var col2 = document.createElement("td");
-    var col3 = document.createElement("td");
-    var col4 = document.createElement("td");
-    var col5 = document.createElement("td");
-    col5.classList.add("password");
-    var duree = document.createElement("td");
-    duree.classList.add("duree");
-    duree.textContent = "0";
-    col1.textContent = monFormulaire.elements["number"].value;
-    col2.textContent = monFormulaire.elements["Date de validité"].value;
-    col3.textContent = monFormulaire.elements["monselect"].value;
-    col4.textContent = monFormulaire.elements["Site"].value;
-    col5.textContent = password;
-    newLine.append(col1, col2, col3, col4, col5, duree);
-    var monTableau = document.getElementById("montab");
-    monTableau.appendChild(newLine);
-    PwdSaisi(password);
+    pushPWD(PwdSaisi(password));
+    console.log(mesPWDs);
+    var monTableau = document.querySelector("#montab tbody");
+    monTableau.innerHTML = "";
+    mesPWDs.forEach(elementPWD => {
+        let newLine = document.createElement("tr");
+        let col1 = document.createElement("td");
+        let col2 = document.createElement("td");
+        let col3 = document.createElement("td");
+        let col4 = document.createElement("td");
+        let col5 = document.createElement("td");
+        col5.classList.add("password");
+        let duree = document.createElement("td");
+        duree.classList.add("duree");
+        duree.textContent = elementPWD.duree;
+        col1.textContent = elementPWD.nombrecar;
+        col2.textContent = elementPWD.DateCreation;
+        col3.textContent = elementPWD.categorie;
+        col4.textContent = elementPWD.site;
+        col5.textContent = elementPWD.pwd;
+        newLine.append(col1, col2, col3, col4, col5, duree);
+        monTableau.appendChild(newLine);
+    })
+    
 
 }
 
@@ -101,6 +114,8 @@ function generer() {
             !(document.getElementById("chiffre").checked) &&
             !(document.getElementById("symbole").checked))
             
+
+
             {
 
                 alert('Veuillez sélectionner au moins un critères !');
@@ -151,7 +166,7 @@ function PwdSaisi(pwd)
      monFormulaire.elements["monselect"].value, 
      monFormulaire.elements["Site"].value, pwd);
      console.log(NvPWD);
-
+     return NvPWD;
 
 }
 
@@ -166,6 +181,7 @@ class PWD
         this.categorie=categorie;
         this.site=site;
         this.pwd=pwd;
+        this.duree=0;
     }
 
     printPwd()
@@ -182,4 +198,8 @@ class PWD
     }
 
 
+}
+
+function pushPWD(pwd) {
+    mesPWDs.push(pwd);
 }
