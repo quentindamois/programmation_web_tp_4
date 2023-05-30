@@ -1,5 +1,5 @@
 console.log("Je suis la console !");
-var mesPWDs = [];
+
 
 function bienvenue() //Etape 1 pour afficher une fenêtre pop-up
 {
@@ -13,6 +13,8 @@ var majuscule = "ABCDEFGHIJKLMONPQRSTUVWXYZ"
 var chiffre = "0123456789";
 var carspecial = "%!&*^()#$:";
 
+
+var mesPWDs = [];
 
 setInterval(incrementerDuree,1000);
 
@@ -37,14 +39,18 @@ function incrementerDuree() {
                 if (valeur < 59) {
                     dureeElement.textContent = valeur + 1;
                 }
+                else {
+                    dureeElement.style.color = "grey";
+                }
             }
-            mesPWDs[i].duree = valeur + 1;
+            mesPWDs[i].duree = valeur;
             i = i + 1;
         });
     }
 }
 
 function generer() {
+    console.log(mesPWDs);
     var monFormulaire = document.forms.ajoutPWD;//forms['addPWD'];
     //console.log(monFormulaire.nombre_caractere.value);
     var password = "";
@@ -89,12 +95,29 @@ function generer() {
     col5.textContent = password;
     ajoutPWD = new PWD(monFormulaire.elements["number"].value, monFormulaire.elements["Date de validité"].value, monFormulaire.elements["monselect"].value, monFormulaire.elements["Site"].value, password);
     */
-    mesPWDs = pushPWD(PwdSaisi(password));
-    var monTableau = document.getElementById("montab");
+    pushPWD(PwdSaisi(password));
+    console.log(mesPWDs);
+    var monTableau = document.querySelector("#montab tbody");
     monTableau.innerHTML = "";
-    Array.prototype.forEach.call(mesPWDs, function(elementPWD) {
+    mesPWDs.forEach(elementPWD => {
+        console.log("marche");
         console.log(elementPWD);
-        newLine.append(elementPWD.nombrecar, elementPWD.DateCreation, elementPWD.categorie, elementPWD.site, elementPWD.pwd, elementPWD.duree);
+        let newLine = document.createElement("tr");
+        let col1 = document.createElement("td");
+        let col2 = document.createElement("td");
+        let col3 = document.createElement("td");
+        let col4 = document.createElement("td");
+        let col5 = document.createElement("td");
+        col5.classList.add("password");
+        let duree = document.createElement("td");
+        duree.classList.add("duree");
+        duree.textContent = elementPWD.duree;
+        col1.textContent = elementPWD.nombrecar;
+        col2.textContent = elementPWD.DateCreation;
+        col3.textContent = elementPWD.categorie;
+        col4.textContent = elementPWD.site;
+        col5.textContent = elementPWD.pwd;
+        newLine.append(col1, col2, col3, col4, col5, duree);
         monTableau.appendChild(newLine);
     })
     
@@ -164,7 +187,7 @@ function PwdSaisi(pwd)
      monFormulaire.elements["monselect"].value, 
      monFormulaire.elements["Site"].value, pwd);
      console.log(NvPWD);
-
+     return NvPWD;
 
 }
 
@@ -179,6 +202,7 @@ class PWD
         this.categorie=categorie;
         this.site=site;
         this.pwd=pwd;
+        this.duree=0;
     }
 
     printPwd()
@@ -197,7 +221,6 @@ class PWD
 
 }
 
-function pushPWD(mesPWDs, pwd) {
+function pushPWD(pwd) {
     mesPWDs.push(pwd);
-    return mesPWDs;
 }
